@@ -10,34 +10,53 @@
  *	|   C   | D |	C: Row 2, Col 1		D: Row 2, Col 2
  *	+-------+---+
  */
-
 .two-grid {
 	width: 100%;
 	height: auto;
 	background-color: #0FF;
 }
 
-.two-grid .r1,
-.two-grid .r2 {
+.two-grid .row {
 	margin: 1em 0 1em 0;
 }
 
-.two-grid .r1 .c1,
-.two-grid .r2 .c1 {
+.two-grid .row .col1 {
+	margin: 0 2em 0 0;
+	background-color: #044;
+}
+.two-grid .row .col2 {
+	background-color: #400;
+}
+
+/*
+ * The "test-grid" layout consists of 4 elements in a 1x2x1 grid.
+ * 
+ * The first element, A, will be placed in the first row.
+ * The next 2 elements, B and C, will be placed in the second row.
+ * The last element, D, will be placed in the third row.
+ * 
+ *	+-----------+
+ *	|     A     |	A: Row 1, Col 1
+ *	+-----+-----+
+ *	|  B  |  C  |	B: Row 2, Col 1		C: Row 2, Col 2
+ *	+-----+-----+
+ *	|     D     |	D: Row 3, Col 1
+ *	+-----------+
+ */
+.test-grid {
+	width: 100%;
+	height: auto;
+	background-color: #0FF;
+}
+
+.test-grid .row {
+	margin: 1em 0 1em 0;
+}
+
+.test-grid .row .col1 {
 	margin: 0 2em 0 0;
 	background-color: #FFD;
 }
-.two-grid .r1 .c2,
-.two-grid .r2 .c2 {
+.test-grid .row .col2 {
 	background-color: #DDF;
-}
-
-.two-grid .r1 .c1,
-.two-grid .r1 .c2 {
-	margin: 0 2em 0 0;
-	color: #044;
-}
-.two-grid .r2 .c1,
-.two-grid .r2 .c2 {
-	color: #400;
 }

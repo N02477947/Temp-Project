@@ -39,7 +39,14 @@ app.config(['$routeProvider', function($routeProvider) {
 			for (var i=0; i<CMS_CONFIG.components.length; i++) {
 				console.log("Compiling CMS component: ", CMS_CONFIG.components[i]);
 
-				// Open tag.
+				// Row tag.
+				if(i%2==0) templ += "<div class=\"row\">";
+
+				// Column tag.
+				if(i%2==0) templ += "<div class=\"col1\">";
+				else templ += "<div class=\"col2\">";
+
+				// Component's open tag.
 				templ += "<"+CMS_CONFIG.components[i].component;
 
 				// Append any component parameters to HTML.
@@ -53,9 +60,15 @@ app.config(['$routeProvider', function($routeProvider) {
 					});
 				}
 
-				// Close tag.
-				templ += "> </"+CMS_CONFIG.components[i].component+">";        	
+				// Coponent's close tag.
+				templ += "> </"+CMS_CONFIG.components[i].component+">";
+
+				// Close column tag.
+				templ += "</div>";
 			}
+
+			// Close row tag.
+			if(i%2==0) templ += "</div>";
 
 			// Close outer DIV.
 			templ += "</div>";
