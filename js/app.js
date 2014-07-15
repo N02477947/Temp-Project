@@ -7,16 +7,15 @@
 
 // Declare all app-defined dependencies/components
 var app = angular.module('cmsTestApp', [
-	'cmsExampleCalendar'
-	/*'ngRoute',
+	'cmsExampleCalendar',
+	'ngRoute'/*,
 	'ngStorage',
 	'ui.bootstrap'*/
 ]);
 
 // Configure page.
-app.config([/*'$routeProvider',*/ function(/*$routeProvider*/) {
+app.config(['$routeProvider', function($routeProvider) {
 	console.log("CMS Test App is being configured.");
-
 	/*
 	 * CMS TEMPLATE CONFIGURATION
 	 */
@@ -56,21 +55,27 @@ app.config([/*'$routeProvider',*/ function(/*$routeProvider*/) {
 	 * ROUTING
 	 */
 
-	/*$routeProvider.when('/home', {
+	$routeProvider.when('/home', {
+		title: CMS_CONFIG.title,
 		template: '<div></div>'
 	});
 
-	$routeProvider.when('/', {
+	/*$routeProvider.when('/', {
+		redirectTo: '/home'
+	});*/
+
+	$routeProvider.otherwise({
 		redirectTo: '/home'
 	});
 
-	$routeProvider.otherwise({redirectTo: '/home'});*/
-
 }]);
 
-app.run(['$rootScope', function($rootScope) {
+app.run(['$location', '$rootScope', function($location, $rootScope) {
 	console.log("CMS Test App is running.");
-	// ...
+    $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+        try { $rootScope.title = current.$$route.title; }
+        catch(TypeError) {}
+    });
 }]);
 
 app.controller('cmsTestController', ['$scope', function($scope) {
