@@ -15,16 +15,17 @@ var app = angular.module('cmsTestApp', [
 // Configure page.
 app.config([/*'$routeProvider',*/ function(/*$routeProvider*/) {
 	console.log("CMS Test App is being configured.");
+
 	/*
 	 * CMS TEMPLATE CONFIGURATION
 	 */
 	var CMS_CONFIG = null;
 	$.ajax({
-		'async': false,
-		'global': false,
-		'url': "home.json",
-		'dataType': "json",
-		'success': function (data) {
+		async: false,
+		global: false,
+		url: "home.json",
+		dataType: "json",
+		success: function(data) {
 			CMS_CONFIG = data;
 			console.log("CMS data loaded: ", CMS_CONFIG);
 			/*for (var i=0; i<CMS_CONFIG.pages.length; i++) {

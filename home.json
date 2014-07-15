@@ -56,10 +56,10 @@
 		},
 		
 		{
-			"component"			: "feed-calendar-viewer"
+			"component"			: "feed-calendar-viewer",
 			"componentParams"	:
 			{
-				"title"			: "Calendar"
+				"title"			: "Calendar",
 				"displayTemplate"	: "singapore-general-events182273821@googlecalendar.com"
 			}
 		}
