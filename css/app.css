@@ -13,19 +13,28 @@
 .two-grid {
 	width: 100%;
 	height: auto;
-	background-color: #0FF;
+	background-color: #000;
+}
+.two-grid:after{
+	content: "";
+	display: table;
+	clear:both;
 }
 
 .two-grid .row {
-	margin: 1em 0 1em 0;
+	/*padding: 1em 0 1em 0;*/
 }
 
 .two-grid .row .col1 {
-	margin: 0 2em 0 0;
-	background-color: #044;
+	/*margin: 0 2em 0 0;*/
+	background-color: #040;
+	float:left;
+	width:55%;
 }
 .two-grid .row .col2 {
-	background-color: #400;
+	background-color: #440;
+	float:right;
+	width:35%;
 }
 
 /*
