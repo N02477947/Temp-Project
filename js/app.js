@@ -17,69 +17,115 @@ var app = angular.module('cmsTestApp', [
 // Configure page.
 app.config(['$routeProvider', function($routeProvider) {
 	console.log("CMS Test App is being configured.");
+	var CMS_CONFIG = null;
+	var CMS_LAYOUTS = null;
+
+	/*
+	 * CMS LAYOUTS
+	 */
+	(function getLayouts() {
+		$.ajax({
+			async: false,
+			global: false,
+			url: "json/layouts.json",
+			dataType: "json",
+			success: function(data) {
+				CMS_LAYOUTS = data;
+				console.log("Success retrieving layout data!\n", CMS_LAYOUTS);
+				getTemplate();
+			},
+			error: function(error) {
+				console.error("Could not retrieve layout data!");
+			}
+		});
+	})();
+
 	/*
 	 * CMS TEMPLATE CONFIGURATION
 	 */
-	var CMS_CONFIG = null;
-	$.ajax({
-		async: false,
-		global: false,
-		url: "home.json",
-		dataType: "json",
-		success: function(data) {
-			CMS_CONFIG = data;
-			console.log("CMS data loaded: ", CMS_CONFIG);
+	function getTemplate() {
+		return $.ajax({
+			async: false,
+			global: false,
+			url: "home.json",
+			dataType: "json",
+			success: function(data) {
+				CMS_CONFIG = data;
+				console.log("CMS data loaded: ", CMS_CONFIG);
 
-			// Set layout
-			var BASE_CSS_CLASS = CMS_CONFIG.layout.baseCssClass
-			console.log("CMS layout: ", BASE_CSS_CLASS);
-			var templ = "<div class=\""+BASE_CSS_CLASS+"\">";
+				// Set layout
+				var BASE_CSS_CLASS = CMS_CONFIG.layout.baseCssClass/*"four-row"*/
+				console.log("CMS layout: ", BASE_CSS_CLASS);
+				var templ = "<div class=\""+BASE_CSS_CLASS+" container-fluid\">";
 
-			// Add components
-			for (var i=0; i<CMS_CONFIG.components.length; i++) {
-				console.log("Compiling CMS component: ", CMS_CONFIG.components[i]);
+				// Add first row tags.
+				console.log("CMS row added.");
+				templ += "<div class=\"row\"><div class=\"row-content\">";
 
-				// Row tag.
-				if(i%2==0) templ += "<div class=\"row\">";
+				// Add component(s).
+				var row = 0;
+				var col = 0;
+				for(var i = 0; i < CMS_CONFIG.components.length; i++) {
 
-				// Column tag.
-				if(i%2==0) templ += "<div class=\"col1\">";
-				else templ += "<div class=\"col2\">";
+					// Column tags.
+					console.log("CMS col-md-"+CMS_LAYOUTS[BASE_CSS_CLASS].row[row].column[col].weight+" added.");
+					templ += "<div class=\"col-md-" + CMS_LAYOUTS[BASE_CSS_CLASS].row[row].column[col].weight + "\">"
+						+ "<div class=\"column-content\">";
 
-				// Component's open tag.
-				templ += "<"+CMS_CONFIG.components[i].component;
+					console.log("Compiling CMS component: ", CMS_CONFIG.components[i]);
 
-				// Append any component parameters to HTML.
-				if(CMS_CONFIG.components[i].componentParams) {
-					$.each(CMS_CONFIG.components[i].componentParams, function(_key, _value) {
-						// Convert key name from camelCase to hyphen-conjoined.
-						_key = _key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-						// Add attribute
-						templ += " "+_key+"=\""+_value+"\"" ;
-						//console.log("Parameter added: "+_key+"="+_value);
-					});
+					// Component's open tag.
+					templ += "<"+CMS_CONFIG.components[i].component;
+
+					// Append any component parameters to HTML.
+					if(CMS_CONFIG.components[i].componentParams) {
+						$.each(CMS_CONFIG.components[i].componentParams, function(_key, _value) {
+							// Convert key name from camelCase to hyphen-conjoined.
+							_key = _key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+							// Add attribute
+							templ += " "+_key+"=\""+_value+"\"" ;
+							//console.log("Parameter added: "+_key+"="+_value);
+						});
+					}
+
+					// Component's close tag.
+					templ += "></"+CMS_CONFIG.components[i].component+">";
+
+					// Close column tags.
+					console.log("CMS col-md-"+CMS_LAYOUTS[BASE_CSS_CLASS].row[row].column[col].weight+" closed.");
+					templ += "</div></div>";
+
+					// Determine new row/col.
+					if(++col == CMS_LAYOUTS[BASE_CSS_CLASS].row[row].column.length) {
+						row++;
+						col = 0;
+
+						// Close row tag.
+						console.log("CMS row closed.");
+						templ += "</div></div>";
+
+						// Add next row tag.
+						if(i < CMS_CONFIG.components.length - 1) {
+							console.log("CMS row added.");
+							templ += "<div class=\"row\"><div class=\"row-content\">";
+						}
+					}
 				}
 
-				// Coponent's close tag.
-				templ += "> </"+CMS_CONFIG.components[i].component+">";
-
-				// Close column tag.
+				// Close outer DIV.
 				templ += "</div>";
+
+				console.log("Template created: ", templ);
+				$routeProvider.when('/'+(CMS_CONFIG.title.toLowerCase()), {
+					title: CMS_CONFIG.title,
+					template: templ
+				});
+			},
+			error: function(error) {
+				console.error("Could not retrieve template data!");
 			}
-
-			// Close row tag.
-			if(i%2==0) templ += "</div>";
-
-			// Close outer DIV.
-			templ += "</div>";
-
-			console.log("Template created: ", templ);
-			$routeProvider.when('/'+(CMS_CONFIG.title.toLowerCase()), {
-				title: CMS_CONFIG.title,
-				template: templ
-			});
-		}
-	});
+		});
+	}
 
 	/*
 	 * ROUTING

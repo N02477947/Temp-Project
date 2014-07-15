@@ -9,35 +9,38 @@
   <title ng-bind="'CMS Test &mdash; ' + title">TEST</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"/>
   
   <!-- CSS Classes -->
-  <!-- <link rel="stylesheet" href="css/bootstrap.css" /> -->
-  <!-- <link rel="stylesheet" href="css/ng-table.css" /> -->
+  <link rel="stylesheet" href="dependancies/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="dependancies/ng-table/ng-table.css" />
   <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="css/layouts.css"/>
 
 </head>
 
 
-<body>
+<body class="cmsBody">
 
   <!-- Page Header -->
-  <div class="cmsHeader"></div>
+  <div class="cmsHeader"><center><h1>This is the Header!</h1></center></div>
 
   <!-- Page Menu -->
-  <div class="cmsMenu"></div>
+  <div class="cmsMenu"><center><h3>This is the Menu!</h3></center></div>
 
-  <!-- Page Body -->
-  <div class="cmsBody" ng-view></div>
+  <!-- Page Content -->
+  <div class="cmsContent" ng-view></div>
 
   <!-- Page Footer -->
-  <div class="cmsFooter"></div>
+  <div class="cmsFooter"><center><h5>This is the Footer!</h5></center></div>
 
   <!-- AngularJS / JavaScript -->
   <script src="dependancies/jquery/dist/jquery.js"></script>
   <script src="dependancies/angular/angular.js"></script>
   <script src="dependancies/angular/angular-route.js"></script>
-  <!-- <script src="js/bootstrap.min.js"></script>
-  <script src="js/ng-table.js"></script> -->
+  <script src="dependancies/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="dependancies/ng-table/ng-table.js"></script>
   <script src="js/app.js"></script>
   
   

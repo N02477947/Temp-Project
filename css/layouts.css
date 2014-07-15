@@ -1,0 +1,95 @@
+/*
+ * The "four-row" layout consists of 4 elements, each in a separate row.
+ * 
+ *	+-----------+
+ *	|     A     |	A: Row 1, Col 1
+ *	+-----------+
+ *	|     B     |	B: Row 2, Col 1
+ *	+-----------+
+ *	|     C     |	C: Row 3, Col 1
+ *	+-----------+
+ *	|     D     |	D: Row 4, Col 1
+ *	+-----------+
+ */
+.four-row {
+	width: 100%;
+	height: auto;
+	background-color: #666;
+}
+
+.four-row .row {
+	margin: 1em 0 1em 0;
+	background-color: #888;
+}
+
+/*
+ * The "two-grid" layout consists of 4 elements in a 2x2 grid.
+ * 
+ * The first 2 elements, A and B, will be placed in the first row.
+ * The next 2 elements, C and D, will be placed in the second row.
+ * 
+ *	+-------+---+
+ *	|   A   | B |	A: Row 1, Col 1		B: Row 1, Col 2
+ *	+-------+---+
+ *	|   C   | D |	C: Row 2, Col 1		D: Row 2, Col 2
+ *	+-------+---+
+ */
+.two-grid {
+	width: 100%;
+	height: auto;
+	background-color: #666;
+	padding: 0 0 0 0;
+}
+
+.two-grid .row {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+.two-grid .column-content {
+	margin: 0.5em;
+	padding: 0.5em;
+	background-color: #888;
+}
+
+.two-grid .col-xs-1,  .two-grid .col-sm-1,  .two-grid .col-md-1,  .two-grid .col-lg-1,
+.two-grid .col-xs-2,  .two-grid .col-sm-2,  .two-grid .col-md-2,  .two-grid .col-lg-2,
+.two-grid .col-xs-3,  .two-grid .col-sm-3,  .two-grid .col-md-3,  .two-grid .col-lg-3,
+.two-grid .col-xs-4,  .two-grid .col-sm-4,  .two-grid .col-md-4,  .two-grid .col-lg-4,
+.two-grid .col-xs-5,  .two-grid .col-sm-5,  .two-grid .col-md-5,  .two-grid .col-lg-5,
+.two-grid .col-xs-6,  .two-grid .col-sm-6,  .two-grid .col-md-6,  .two-grid .col-lg-6,
+.two-grid .col-xs-7,  .two-grid .col-sm-7,  .two-grid .col-md-7,  .two-grid .col-lg-7,
+.two-grid .col-xs-8,  .two-grid .col-sm-8,  .two-grid .col-md-8,  .two-grid .col-lg-8,
+.two-grid .col-xs-9,  .two-grid .col-sm-9,  .two-grid .col-md-9,  .two-grid .col-lg-9,
+.two-grid .col-xs-10, .two-grid .col-sm-10, .two-grid .col-md-10, .two-grid .col-lg-10,
+.two-grid .col-xs-11, .two-grid .col-sm-11, .two-grid .col-md-11, .two-grid .col-lg-11,
+.two-grid .col-xs-12, .two-grid .col-sm-12, .two-grid .col-md-12, .two-grid .col-lg-12 {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+/*
+ * The "test-grid" layout consists of 4 elements in a 1x2x1 grid.
+ * 
+ * The first element, A, will be placed in the first row.
+ * The next 2 elements, B and C, will be placed in the second row.
+ * The last element, D, will be placed in the third row.
+ * 
+ *	+-----------+
+ *	|     A     |	A: Row 1, Col 1
+ *	+-----+-----+
+ *	|  B  |  C  |	B: Row 2, Col 1		C: Row 2, Col 2
+ *	+-----+-----+
+ *	|     D     |	D: Row 3, Col 1
+ *	+-----------+
+ */
+.test-grid {
+	width: 100%;
+	height: auto;
+	background-color: #666;
+}
+
+.test-grid .row {
+	margin: 1em 0 1em 0;
+	background-color: #888;
+}

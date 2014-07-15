@@ -1,0 +1,140 @@
+{
+  "one-row": {
+    "row": [
+      {
+        "column": [
+          {
+            "weight": 12
+          }
+        ]
+      }
+    ]
+  },
+  "two-row": {
+    "row": [
+      {
+        "column": [
+          {
+            "weight": 12
+          }
+        ]
+      },
+      {
+        "column": [
+          {
+            "weight": 12
+          }
+        ]
+      }
+    ]
+  },
+  "three-row": {
+    "row": [
+      {
+        "column": [
+          {
+            "weight": 12
+          }
+        ]
+      },
+      {
+        "column": [
+          {
+            "weight": 12
+          }
+        ]
+      },
+      {
+        "column": [
+          {
+            "weight": 12
+          }
+        ]
+      }
+    ]
+  },
+  "four-row": {
+    "row": [
+      {
+        "column": [
+          {
+            "weight": 12
+          }
+        ]
+      },
+      {
+        "column": [
+          {
+            "weight": 12
+          }
+        ]
+      },
+      {
+        "column": [
+          {
+            "weight": 12
+          }
+        ]
+      },
+      {
+        "column": [
+          {
+            "weight": 12
+          }
+        ]
+      }
+    ]
+  },
+  "two-grid": {
+    "row": [
+      {
+        "column": [
+          {
+            "weight": 8
+          },
+          {
+            "weight": 4
+          }
+        ]
+      },
+      {
+        "column": [
+          {
+            "weight": 8
+          },
+          {
+            "weight": 4
+          }
+        ]
+      }
+    ]
+  },
+  "test-grid": {
+    "row": [
+      {
+        "column": [
+          {
+            "weight": 12
+          }
+        ]
+      },
+      {
+        "column": [
+          {
+            "weight": 6
+          },
+          {
+            "weight": 6
+          }
+        ]
+      },
+      {
+        "column": [
+          {
+            "weight": 12
+          }
+        ]
+      }
+    ]
+  }
+}
