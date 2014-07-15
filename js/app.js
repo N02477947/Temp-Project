@@ -7,6 +7,7 @@
 
 // Declare all app-defined dependencies/components
 var app = angular.module('cmsTestApp', [
+	'cmsExampleCalendar'
 	/*'ngRoute',
 	'ngStorage',
 	'ui.bootstrap'*/
