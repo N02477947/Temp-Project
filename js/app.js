@@ -7,10 +7,11 @@
 
 // Declare all app-defined dependencies/components
 var app = angular.module('cmsTestApp', [
+	'ngRoute',
 	'cmsExampleCalendar',
-	'ngRoute'/*,
-	'ngStorage',
-	'ui.bootstrap'*/
+	'cmsExampleFeedViewer',
+	'cmsFeedGroup',
+	'cmsExampleMenu'
 ]);
 
 // Configure page.
@@ -28,26 +29,42 @@ app.config(['$routeProvider', function($routeProvider) {
 		success: function(data) {
 			CMS_CONFIG = data;
 			console.log("CMS data loaded: ", CMS_CONFIG);
-			/*for (var i=0; i<CMS_CONFIG.pages.length; i++) {
-				console.log("Compiling CMS page: ", CMS_CONFIG.pages[i]);
-				var templ = top;
-				for (var j=0; j<CMS_CONFIG.pages[i].content.length; j++){
-					console.log("Adding module: ", CMS_CONFIG.pages[i].content[j].module);
-					templ = templ+"<"+CMS_CONFIG.pages[i].content[j].module;
-					if (CMS_CONFIG.pages[i].content[j].parameters) {
-						//appending parameters to html
-						$.each(CMS_CONFIG.pages[i].content[j].parameters, function(key, value) {
-							templ = templ+" "+key+"=\""+value+"\"" ;
-							console.log("Parameter added: "+key+"="+value);
-						});
-					}
-					templ = templ+"> </"+CMS_CONFIG.pages[i].content[j].module+">";
+
+			// Set layout
+			var BASE_CSS_CLASS = CMS_CONFIG.layout.baseCssClass
+			console.log("CMS layout: ", BASE_CSS_CLASS);
+			var templ = "<div class=\""+BASE_CSS_CLASS+"\">";
+
+			// Add components
+			for (var i=0; i<CMS_CONFIG.components.length; i++) {
+				console.log("Compiling CMS component: ", CMS_CONFIG.components[i]);
+
+				// Open tag.
+				templ += "<"+CMS_CONFIG.components[i].component;
+
+				// Append any component parameters to HTML.
+				if(CMS_CONFIG.components[i].componentParams) {
+					$.each(CMS_CONFIG.components[i].componentParams, function(_key, _value) {
+						// Convert key name from camelCase to hyphen-conjoined.
+						_key = _key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+						// Add attribute
+						templ += " "+_key+"=\""+_value+"\"" ;
+						//console.log("Parameter added: "+_key+"="+_value);
+					});
 				}
-				console.log("Template created: ", templ);
-				$routeProvider.when('/'+CMS_CONFIG.pages[i].title, {
-					template: templ
-				});            	
-			}*/
+
+				// Close tag.
+				templ += "> </"+CMS_CONFIG.components[i].component+">";        	
+			}
+
+			// Close outer DIV.
+			templ += "</div>";
+
+			console.log("Template created: ", templ);
+			$routeProvider.when('/'+(CMS_CONFIG.title.toLowerCase()), {
+				title: CMS_CONFIG.title,
+				template: templ
+			});
 		}
 	});
 
@@ -55,8 +72,9 @@ app.config(['$routeProvider', function($routeProvider) {
 	 * ROUTING
 	 */
 
-	$routeProvider.when('/home', {
-		title: CMS_CONFIG.title,
+	// Landing page?
+	$routeProvider.when('/', {
+		title: 'HOME!',
 		template: '<div></div>'
 	});
 
@@ -65,7 +83,7 @@ app.config(['$routeProvider', function($routeProvider) {
 	});*/
 
 	$routeProvider.otherwise({
-		redirectTo: '/home'
+		redirectTo: '/'
 	});
 
 }]);

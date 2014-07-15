@@ -14,6 +14,7 @@
 .two-grid {
 	width: 100%;
 	height: auto;
+	background-color: #0FF;
 }
 
 .two-grid .r1,
@@ -24,19 +25,19 @@
 .two-grid .r1 .c1,
 .two-grid .r2 .c1 {
 	margin: 0 2em 0 0;
-	background-color: #FFD
+	background-color: #FFD;
 }
 .two-grid .r1 .c2,
 .two-grid .r2 .c2 {
-	background-color: #DDF
+	background-color: #DDF;
 }
 
 .two-grid .r1 .c1,
 .two-grid .r1 .c2 {
 	margin: 0 2em 0 0;
-	color: #044
+	color: #044;
 }
 .two-grid .r2 .c1,
 .two-grid .r2 .c2 {
-	color: #400
+	color: #400;
 }
