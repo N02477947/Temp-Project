@@ -9,5 +9,8 @@
 			templateUrl: "templates/ws-cms-ext-calendar.html"
 		};
 	});
-	app.controller('cmsCalendar',function () {});
+	app.controller('cmsCalendar'['$attrs', '$scope', function ($attrs, $scope) {
+	$scope.title=$attrs.title;
+	$scope.displayTemplate = $attrs.displayTemplate;
+	}]);
 })();

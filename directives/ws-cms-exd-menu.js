@@ -9,5 +9,8 @@
 			templateUrl: "templates/ws-cms-ext-menu.html"
 		};
 	});
-	app.controller('cmsMenu',function () {});
+	app.controller('cmsMenu',['$attrs', '$scope', function ($attrs, $scope) {
+	$scope.id = $attrs.id;
+	$scope.displayTemplate = $attrs.displayTemplate;
+	}]);
 })();

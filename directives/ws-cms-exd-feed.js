@@ -9,5 +9,10 @@
 			templateUrl: "templates/ws-cms-ext-feed.html"
 		};
 	});
-	app.controller('cmsFeed',function () {});
+	app.controller('cmsFeed', ['$attrs', '$scope', function ($attrs, $scope) {
+	
+	$scope.id = $attrs.id;
+	$scope.maximumResults = $attrs.maximumResults;
+	$scope.displayTemplate = $attrs.displayTemplate;
+	}]);
 })();
