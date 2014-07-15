@@ -10,7 +10,7 @@
 		};
 	});
 	app.controller('cmsMenu',['$attrs', '$scope', function ($attrs, $scope) {
-	$scope.id = $attrs.id;
-	$scope.displayTemplate = $attrs.displayTemplate;
+	$scope.menuId = $attrs.id;
+	$scope.menuDisplayTemplate = $attrs.displayTemplate;
 	}]);
 })();

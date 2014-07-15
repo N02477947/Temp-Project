@@ -11,8 +11,8 @@
 	});
 	app.controller('cmsCalendar', ['$attrs', '$scope', function ($attrs, $scope) {
 	
-	$scope.title=$attrs.title;
-	$scope.displayTemplate = $attrs.displayTemplate;
+	$scope.calTitle=$attrs.title;
+	$scope.calDisplayTemplate = $attrs.displayTemplate;
 	
 	}]);
 })();

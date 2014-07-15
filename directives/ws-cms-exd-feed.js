@@ -5,14 +5,14 @@
 	app.directive('wsFeedViewer', function() {
 		return {
 			restrict: 'EA',
-			controller: 'cmsCalendar',
+			controller: 'cmsFeed',
 			templateUrl: "templates/ws-cms-ext-feed.html"
 		};
 	});
 	app.controller('cmsFeed', ['$attrs', '$scope', function ($attrs, $scope) {
 	
-	$scope.id = $attrs.id;
-	$scope.maximumResults = $attrs.maximumResults;
-	$scope.displayTemplate = $attrs.displayTemplate;
+	$scope.feedId = $attrs.id;
+	$scope.feedMaximumResults = $attrs.maximumResults;
+	$scope.feedDisplayTemplate = $attrs.displayTemplate;
 	}]);
 })();

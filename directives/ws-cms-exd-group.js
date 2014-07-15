@@ -11,12 +11,12 @@
 	});
 	app.controller('cmsGroupViewer',['$attrs', '$scope', function ($attrs, $scope) {
 	
-	$scope.id = $attrs.id;
-	$scope.maximumResults = $attrs.maximumResults;
-	$scope.showFeatured = $attrs.showFeatured;
-	$scope.includeSiteId = $attrs.includeSiteId;
-	$scope.featuredDisplayTemplate = $attrs.featuredDisplayTemplate;
-	$scope.feedDisplayTemplate = $attrs.feedDisplayTemplate;
+	$scope.groupId = $attrs.id;
+	$scope.groupMaximumResults = $attrs.maximumResults;
+	$scope.groupShowFeatured = $attrs.showFeatured;
+	$scope.groupIncludeSiteId = $attrs.includeSiteId;
+	$scope.groupFeaturedDisplayTemplate = $attrs.featuredDisplayTemplate;
+	$scope.groupFeedDisplayTemplate = $attrs.feedDisplayTemplate;
 	
 	}]);
 })();
