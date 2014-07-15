@@ -1,71 +1,49 @@
 /*
- * The "two-grid" layout consists of 4 elements in a 2x2 grid.
- * 
- * The first 2 elements, A and B, will be placed in the first row.
- * The next 2 elements, C and D, will be placed in the second row.
- * 
- *	+-------+---+
- *	|   A   | B |	A: Row 1, Col 1		B: Row 1, Col 2
- *	+-------+---+
- *	|   C   | D |	C: Row 2, Col 1		D: Row 2, Col 2
- *	+-------+---+
+ * The full body of the HTML page.
  */
-.two-grid {
-	width: 100%;
-	height: auto;
+.cmsBody {
+	margin: 0.5em 0.5em 0.5em 0.5em;
+	padding: 0 0.5em 0 0.5em;
 	background-color: #000;
-}
-.two-grid:after{
-	content: "";
-	display: table;
-	clear:both;
-}
-
-.two-grid .row {
-	/*padding: 1em 0 1em 0;*/
-}
-
-.two-grid .row .col1 {
-	/*margin: 0 2em 0 0;*/
-	background-color: #040;
-	float:left;
-	width:55%;
-}
-.two-grid .row .col2 {
-	background-color: #440;
-	float:right;
-	width:35%;
+	color: #FFF;
 }
 
 /*
- * The "test-grid" layout consists of 4 elements in a 1x2x1 grid.
- * 
- * The first element, A, will be placed in the first row.
- * The next 2 elements, B and C, will be placed in the second row.
- * The last element, D, will be placed in the third row.
- * 
- *	+-----------+
- *	|     A     |	A: Row 1, Col 1
- *	+-----+-----+
- *	|  B  |  C  |	B: Row 2, Col 1		C: Row 2, Col 2
- *	+-----+-----+
- *	|     D     |	D: Row 3, Col 1
- *	+-----------+
+ * The full body of the HTML page.
  */
-.test-grid {
-	width: 100%;
-	height: auto;
-	background-color: #0FF;
+.cmsHeader {
+	margin: 0 0 0.5em 0;
+	padding: 1px 0.5em 1px 0.5em;
+	background-color: #246;
+	color: #FFF;
 }
 
-.test-grid .row {
-	margin: 1em 0 1em 0;
+/*
+ * The full body of the HTML page.
+ */
+.cmsMenu {
+	margin: 0 0 0.5em 0;
+	padding: 1px 0.5em 1px 0.5em;
+	background-color: #606;
+	color: #FFF;
 }
 
-.test-grid .row .col1 {
-	margin: 0 2em 0 0;
-	background-color: #FFD;
+/*
+ * The full body of the HTML page.
+ */
+.cmsContent {
+	margin: 0 0 0.5em 0;
+	padding: 1px 0.5em 1px 0.5em;
+	background-color: #444;
+	color: #FFF;
 }
-.test-grid .row .col2 {
-	background-color: #DDF;
+
+/*
+ * The full body of the HTML page.
+ */
+.cmsFooter {
+	margin: 0 0 0 0;
+	padding: 1px 0.5em 1px 0.5em;
+	background-color: #642;
+	color: #FFF;
 }
