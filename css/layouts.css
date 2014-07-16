@@ -1,4 +1,151 @@
 /*
+ * The "one-row" layout consists of a single element.
+ * 
+ *	+-----------+
+ *	|     A     |	A: Row 1, Col 1
+ *	+-----------+
+ */
+.one-row {
+	width: 100%;
+	height: auto;
+	background-color: #666;
+	padding: 0 0 0 0;
+}
+
+.one-row .row {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+.one-row .row-content {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+.one-row .col-xs-1,  .one-row .col-sm-1,  .one-row .col-md-1,  .one-row .col-lg-1,
+.one-row .col-xs-2,  .one-row .col-sm-2,  .one-row .col-md-2,  .one-row .col-lg-2,
+.one-row .col-xs-3,  .one-row .col-sm-3,  .one-row .col-md-3,  .one-row .col-lg-3,
+.one-row .col-xs-4,  .one-row .col-sm-4,  .one-row .col-md-4,  .one-row .col-lg-4,
+.one-row .col-xs-5,  .one-row .col-sm-5,  .one-row .col-md-5,  .one-row .col-lg-5,
+.one-row .col-xs-6,  .one-row .col-sm-6,  .one-row .col-md-6,  .one-row .col-lg-6,
+.one-row .col-xs-7,  .one-row .col-sm-7,  .one-row .col-md-7,  .one-row .col-lg-7,
+.one-row .col-xs-8,  .one-row .col-sm-8,  .one-row .col-md-8,  .one-row .col-lg-8,
+.one-row .col-xs-9,  .one-row .col-sm-9,  .one-row .col-md-9,  .one-row .col-lg-9,
+.one-row .col-xs-10, .one-row .col-sm-10, .one-row .col-md-10, .one-row .col-lg-10,
+.one-row .col-xs-11, .one-row .col-sm-11, .one-row .col-md-11, .one-row .col-lg-11,
+.one-row .col-xs-12, .one-row .col-sm-12, .one-row .col-md-12, .one-row .col-lg-12 {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+.one-row .column-content {
+	margin: 0.5em;
+	padding: 0.5em;
+	background-color: #888;
+	word-wrap: break-word;
+}
+
+/*
+ * The "two-row" layout consists of 2 elements, each in a separate row.
+ * 
+ *	+-----------+
+ *	|     A     |	A: Row 1, Col 1
+ *	+-----------+
+ *	|     B     |	B: Row 2, Col 1
+ *	+-----------+
+ */
+.two-row {
+	width: 100%;
+	height: auto;
+	background-color: #666;
+	padding: 0 0 0 0;
+}
+
+.two-row .row {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+.two-row .row-content {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+.two-row .col-xs-1,  .two-row .col-sm-1,  .two-row .col-md-1,  .two-row .col-lg-1,
+.two-row .col-xs-2,  .two-row .col-sm-2,  .two-row .col-md-2,  .two-row .col-lg-2,
+.two-row .col-xs-3,  .two-row .col-sm-3,  .two-row .col-md-3,  .two-row .col-lg-3,
+.two-row .col-xs-4,  .two-row .col-sm-4,  .two-row .col-md-4,  .two-row .col-lg-4,
+.two-row .col-xs-5,  .two-row .col-sm-5,  .two-row .col-md-5,  .two-row .col-lg-5,
+.two-row .col-xs-6,  .two-row .col-sm-6,  .two-row .col-md-6,  .two-row .col-lg-6,
+.two-row .col-xs-7,  .two-row .col-sm-7,  .two-row .col-md-7,  .two-row .col-lg-7,
+.two-row .col-xs-8,  .two-row .col-sm-8,  .two-row .col-md-8,  .two-row .col-lg-8,
+.two-row .col-xs-9,  .two-row .col-sm-9,  .two-row .col-md-9,  .two-row .col-lg-9,
+.two-row .col-xs-10, .two-row .col-sm-10, .two-row .col-md-10, .two-row .col-lg-10,
+.two-row .col-xs-11, .two-row .col-sm-11, .two-row .col-md-11, .two-row .col-lg-11,
+.two-row .col-xs-12, .two-row .col-sm-12, .two-row .col-md-12, .two-row .col-lg-12 {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+.two-row .column-content {
+	margin: 0.5em;
+	padding: 0.5em;
+	background-color: #888;
+	word-wrap: break-word;
+}
+
+/*
+ * The "three-row" layout consists of 3 elements, each in a separate row.
+ * 
+ *	+-----------+
+ *	|     A     |	A: Row 1, Col 1
+ *	+-----------+
+ *	|     B     |	B: Row 2, Col 1
+ *	+-----------+
+ *	|     C     |	C: Row 3, Col 1
+ *	+-----------+
+ */
+.three-row {
+	width: 100%;
+	height: auto;
+	background-color: #666;
+	padding: 0 0 0 0;
+}
+
+.three-row .row {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+.three-row .row-content {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+.three-row .col-xs-1,  .three-row .col-sm-1,  .three-row .col-md-1,  .three-row .col-lg-1,
+.three-row .col-xs-2,  .three-row .col-sm-2,  .three-row .col-md-2,  .three-row .col-lg-2,
+.three-row .col-xs-3,  .three-row .col-sm-3,  .three-row .col-md-3,  .three-row .col-lg-3,
+.three-row .col-xs-4,  .three-row .col-sm-4,  .three-row .col-md-4,  .three-row .col-lg-4,
+.three-row .col-xs-5,  .three-row .col-sm-5,  .three-row .col-md-5,  .three-row .col-lg-5,
+.three-row .col-xs-6,  .three-row .col-sm-6,  .three-row .col-md-6,  .three-row .col-lg-6,
+.three-row .col-xs-7,  .three-row .col-sm-7,  .three-row .col-md-7,  .three-row .col-lg-7,
+.three-row .col-xs-8,  .three-row .col-sm-8,  .three-row .col-md-8,  .three-row .col-lg-8,
+.three-row .col-xs-9,  .three-row .col-sm-9,  .three-row .col-md-9,  .three-row .col-lg-9,
+.three-row .col-xs-10, .three-row .col-sm-10, .three-row .col-md-10, .three-row .col-lg-10,
+.three-row .col-xs-11, .three-row .col-sm-11, .three-row .col-md-11, .three-row .col-lg-11,
+.three-row .col-xs-12, .three-row .col-sm-12, .three-row .col-md-12, .three-row .col-lg-12 {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+.three-row .column-content {
+	margin: 0.5em;
+	padding: 0.5em;
+	background-color: #888;
+	word-wrap: break-word;
+}
+
+/*
  * The "four-row" layout consists of 4 elements, each in a separate row.
  * 
  *	+-----------+
@@ -48,6 +195,59 @@
 	margin: 0.5em;
 	padding: 0.5em;
 	background-color: #888;
+	word-wrap: break-word;
+}
+
+/*
+ * The "one-by-two" layout consists of 3 elements in 2 rows.
+ * 
+ * The first element, A, will be placed in the first row.
+ * The last 2 elements, B and C, will be placed in the second row.
+ * 
+ *	+-----------+
+ *	|     A     |	A: Row 1, Col 1
+ *	+-----+-----+
+ *	|  B  |  C  |	B: Row 2, Col 1		C: Row 2, Col 2
+ *	+-----+-----+
+ */
+.one-by-two {
+	width: 100%;
+	height: auto;
+	background-color: #666;
+	padding: 0 0 0 0;
+}
+
+.one-by-two .row {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+.one-by-two .row-content {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+.one-by-two .col-xs-1,  .one-by-two .col-sm-1,  .one-by-two .col-md-1,  .one-by-two .col-lg-1,
+.one-by-two .col-xs-2,  .one-by-two .col-sm-2,  .one-by-two .col-md-2,  .one-by-two .col-lg-2,
+.one-by-two .col-xs-3,  .one-by-two .col-sm-3,  .one-by-two .col-md-3,  .one-by-two .col-lg-3,
+.one-by-two .col-xs-4,  .one-by-two .col-sm-4,  .one-by-two .col-md-4,  .one-by-two .col-lg-4,
+.one-by-two .col-xs-5,  .one-by-two .col-sm-5,  .one-by-two .col-md-5,  .one-by-two .col-lg-5,
+.one-by-two .col-xs-6,  .one-by-two .col-sm-6,  .one-by-two .col-md-6,  .one-by-two .col-lg-6,
+.one-by-two .col-xs-7,  .one-by-two .col-sm-7,  .one-by-two .col-md-7,  .one-by-two .col-lg-7,
+.one-by-two .col-xs-8,  .one-by-two .col-sm-8,  .one-by-two .col-md-8,  .one-by-two .col-lg-8,
+.one-by-two .col-xs-9,  .one-by-two .col-sm-9,  .one-by-two .col-md-9,  .one-by-two .col-lg-9,
+.one-by-two .col-xs-10, .one-by-two .col-sm-10, .one-by-two .col-md-10, .one-by-two .col-lg-10,
+.one-by-two .col-xs-11, .one-by-two .col-sm-11, .one-by-two .col-md-11, .one-by-two .col-lg-11,
+.one-by-two .col-xs-12, .one-by-two .col-sm-12, .one-by-two .col-md-12, .one-by-two .col-lg-12 {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+.one-by-two .column-content {
+	margin: 0.5em;
+	padding: 0.5em;
+	background-color: #888;
+	word-wrap: break-word;
 }
 
 /*
@@ -99,6 +299,7 @@
 	margin: 0.5em;
 	padding: 0.5em;
 	background-color: #888;
+	word-wrap: break-word;
 }
 
 /*
@@ -153,4 +354,5 @@
 	margin: 0.5em;
 	padding: 0.5em;
 	background-color: #888;
+	word-wrap: break-word;
 }

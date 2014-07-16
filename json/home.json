@@ -21,7 +21,40 @@
 			"component"			: "ws-quicklinks",
 			"componentParams"	:
 			{
-				"id"				: 42
+				"id"				: 1,
+				"links" :
+				[
+					{
+						"title": "Calendar",
+						"pageUrl": "https://calendar.google.com/",
+						"image": "https://www.google.com/images/icons/product/calendar-64.png"
+					},
+					{
+						"title": "Gmail",
+						"pageUrl": "https://mail.google.com/",
+						"image": "https://www.google.com/images/icons/product/googlemail-64.png"
+					},
+					{
+						"title": "Drive",
+						"pageUrl": "https://drive.google.com/",
+						"image": "https://www.google.com/images/icons/product/drive-64.png"
+					},
+					{
+						"title": "YouTube",
+						"pageUrl": "https://www.youtube.com/",
+						"image": "https://www.google.com/images/icons/product/youtube-64.png"
+					},
+					{
+						"title": "Sites",
+						"pageUrl": "https://sites.google.com/",
+						"image": "https://www.google.com/images/icons/product/sites-64.png"
+					},
+					{
+						"title": "Groups",
+						"pageUrl": "https://groups.google.com/",
+						"image": "https://www.google.com/images/icons/product/groups-64.png"
+					}
+				]
 			}
 		},
 		

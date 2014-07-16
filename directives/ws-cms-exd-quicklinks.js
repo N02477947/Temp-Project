@@ -10,6 +10,7 @@
 		};
 	});
 	app.controller('cmsQuicklinksCtrl', ['$attrs', '$scope', function ($attrs, $scope) {	
-		$scope.quickId=$attrs.id;
+		$scope.quickId = $attrs.id;
+		$scope.quickLinks = JSON.parse(decodeURIComponent($attrs.links));
 	}]);
 })();

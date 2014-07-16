@@ -85,6 +85,27 @@
       }
     ]
   },
+  "one-by-two": {
+    "row": [
+      {
+        "column": [
+          {
+            "weight": 12
+          }
+        ]
+      },
+      {
+        "column": [
+          {
+            "weight": 7
+          },
+          {
+            "weight": 5
+          }
+        ]
+      }
+    ]
+  },
   "two-grid": {
     "row": [
       {

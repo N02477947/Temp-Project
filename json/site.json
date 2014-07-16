@@ -12,12 +12,19 @@
 		"menu" :
 		{
 			"display" : true,
-			"component" : "menu-search-composite",
+			"component" : "ws-menu-header-search-content",
 			"componentParams" : 
 			{
 				"id" : 3,
-				"showSearch" : true,
-				"showTopMenuSections" : true
+				"mhscTitle" : "Intranet",
+				"mhscLogo" : null,
+				"mhscSearch" : true,
+				"mhscContent" : "cfv", // "cfv", "img", or "lnk"
+				"mhscFeedLayout" : "scroll",
+				"mhscFeedKey" : 42,
+				"mhscFeedPagination" : false,
+				"mhscFeedLinksPerPage" : 5,
+				"megaCompact" : true // showTopMenuSections
 			}
 		}
 	},
