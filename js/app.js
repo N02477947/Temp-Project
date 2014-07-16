@@ -130,9 +130,20 @@ app.config(['$routeProvider', function($routeProvider) {
 				templ += "</div>";
 
 				console.log("Template created: ", templ);
-				$routeProvider.when('/'+(CMS_CONFIG.title.toLowerCase()), {
+				/*$routeProvider.when('/'+(CMS_CONFIG.title.toLowerCase()), {
+					//title: CMS_CONFIG.title,
+					template: templ,
+					controller: 'cmsTestController'
+				});*/
+				$routeProvider.when('/site/:SITE_ID/page/'+(CMS_CONFIG.title.toLowerCase()), {
 					title: CMS_CONFIG.title,
-					template: templ
+					template: templ,
+					controller: 'cmsTestController'
+				});
+				$routeProvider.when('/site/:SITE_ID/page/'+(CMS_CONFIG.id), {
+					title: CMS_CONFIG.title,
+					template: templ,
+					controller: 'cmsTestController'
 				});
 			},
 			error: function(error) {
@@ -145,15 +156,55 @@ app.config(['$routeProvider', function($routeProvider) {
 	 * ROUTING
 	 */
 
-	// Landing page?
+	// Default Home Page
 	$routeProvider.when('/', {
 		title: 'HOME!',
-		template: '<div></div>'
+		template: 	'<div>' + 
+						'<center>This is the HOME page!</center><br><br>' +
+						'Try the below test links:<br>' +
+						'<a href="#/site/TEST/page/home">#/site/TEST/page/home</a><br>' +
+						'<a href="#/site/TEST/page/28"  >#/site/TEST/page/28</a><br>' +
+						'<a href="#/site/TEST/page/"    >#/site/TEST/page/</a><br>' +
+					'</div>'
 	});
 
-	/*$routeProvider.when('/', {
-		redirectTo: '/home'
-	});*/
+	// Page-level Routing
+	$routeProvider.when('/site/:SITE_ID/page/:PAGE_ID', {
+		title: 'PAGE!',
+		template: 	'<div>' + 
+						'Site ID: {{SITE_ID}}<br>' +
+						'Page ID: {{PAGE_ID}}<br>' +
+						'<br>The PAGE with this parameter does not exist!' +
+					'</div>',
+		controller: 'cmsTestController'
+	});
+	$routeProvider.when('/site/:SITE_ID/page/', {
+		title: 'PAGE!',
+		template: 	'<div>' + 
+						'Site ID: {{SITE_ID}}<br>' +
+						'Page ID: {{PAGE_ID || "n/a"}}<br>' +
+						'<br>This is the PAGE with no parameter!' +
+					'</div>',
+		controller: 'cmsTestController'
+	});
+
+	// Site-level Routing
+	$routeProvider.when('/site/:SITE_ID', {
+		title: 'SITE!',
+		template: 	'<div>' + 
+						'Site ID: {{SITE_ID || "n/a"}}<br>' +
+						'<br>The SITE with this parameter does not exist!' +
+					'</div>',
+		controller: 'cmsTestController'
+	});
+	$routeProvider.when('/site/', {
+		title: 'SITE!',
+		template: 	'<div>' + 
+						'Site ID: {{SITE_ID || "n/a"}}<br>' +
+						'<br>This is the SITE with no parameter!' +
+					'</div>',
+		controller: 'cmsTestController'
+	});
 
 	$routeProvider.otherwise({
 		redirectTo: '/'
@@ -169,9 +220,11 @@ app.run(['$location', '$rootScope', function($location, $rootScope) {
     });
 }]);
 
-app.controller('cmsTestController', ['$scope', function($scope) {
+app.controller('cmsTestController', ['$scope', '$routeParams', function($scope, $routeParams) {
 	console.log("CMS Test App controller is active.");
 	// ...
+	$scope.SITE_ID = $routeParams.SITE_ID;
+	$scope.PAGE_ID = $routeParams.PAGE_ID;
 }]);
 
 })();
