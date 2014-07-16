@@ -16,5 +16,6 @@
 		$scope.groupIncludeSiteId = $attrs.includeSiteId;
 		$scope.groupFeaturedDisplayTemplate = $attrs.featuredDisplayTemplate;
 		$scope.groupFeedDisplayTemplate = $attrs.feedDisplayTemplate;
+		$scope.groupFilters = JSON.parse(decodeURIComponent($attrs.feedGroups));
 	}]);
 })();

@@ -83,9 +83,22 @@ app.config(['$routeProvider', function($routeProvider) {
 						$.each(CMS_CONFIG.components[i].componentParams, function(_key, _value) {
 							// Convert key name from camelCase to hyphen-conjoined.
 							_key = _key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+							console.log("Parameter......: "+_key+" = "+_value);
+							_value = JSON.stringify(_value) + "";
+							console.log("Parameter......: "+_key+" = "+_value);
+							// Clean value for JSON.stringify()
+							try{
+								if(_value.slice(0, 1) == "\"")
+									_value = _value.slice(1, _value.length-1);
+							    if(_value.slice(_value.length-2, _value.length-1) == "\"")
+									_value = _value.slice(0, _value.length-1);
+							}
+							catch(TypeError) { console.warn("Parameter couldn't be cleaned.", TypeError); }
+							// Stringify and encode value.
+							_value = encodeURIComponent(_value);
 							// Add attribute
 							templ += " "+_key+"=\""+_value+"\"" ;
-							//console.log("Parameter added: "+_key+"="+_value);
+							console.log("Parameter added: "+_key+" = "+_value);
 						});
 					}
 
