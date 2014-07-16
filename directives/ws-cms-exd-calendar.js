@@ -1,18 +1,16 @@
 'use strict';
 (function() {
-	var app = angular.module('cmsExampleCalendar', [])
+	var app = angular.module('cmsCalendar', []);
 	
-	app.directive('feedCalendarViewer', function() {
+	app.directive('wsCalendar', function() {
 		return {
 			restrict: 'EA',
-			controller: 'cmsCalendar',
+			controller: 'cmsCalendarCtrl',
 			templateUrl: "templates/ws-cms-ext-calendar.html"
 		};
 	});
-	app.controller('cmsCalendar', ['$attrs', '$scope', function ($attrs, $scope) {
-	
-	$scope.calTitle=$attrs.title;
-	$scope.calDisplayTemplate = $attrs.displayTemplate;
-	
+	app.controller('cmsCalendarCtrl', ['$attrs', '$scope', function ($attrs, $scope) {
+		$scope.calTitle=$attrs.title;
+		$scope.calDisplayTemplate = $attrs.displayTemplate;
 	}]);
 })();

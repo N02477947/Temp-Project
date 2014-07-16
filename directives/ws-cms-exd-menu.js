@@ -1,6 +1,6 @@
 'use strict';
 (function() {
-	var app = angular.module('cmsExampleMenu', [])
+	var app = angular.module('cmsMenu', []);
 	
 	app.directive('wsSimpleMenu', function() {
 		return {
@@ -9,8 +9,8 @@
 			templateUrl: "templates/ws-cms-ext-menu.html"
 		};
 	});
-	app.controller('cmsMenu',['$attrs', '$scope', function ($attrs, $scope) {
-	$scope.menuId = $attrs.id;
-	$scope.menuDisplayTemplate = $attrs.displayTemplate;
+	app.controller('cmsMenuCtrl',['$attrs', '$scope', function ($attrs, $scope) {
+		$scope.menuId = $attrs.id;
+		$scope.menuDisplayTemplate = $attrs.displayTemplate;
 	}]);
 })();

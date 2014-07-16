@@ -8,10 +8,11 @@
 // Declare all app-defined dependencies/components
 var app = angular.module('cmsTestApp', [
 	'ngRoute',
-	'cmsExampleCalendar',
-	'cmsExampleFeedViewer',
+	'cmsCalendar',
+	'cmsFeedViewer',
 	'cmsFeedGroup',
-	'cmsExampleMenu'
+	'cmsMenu',
+	'cmsQuicklinks'
 ]);
 
 // Configure page.
@@ -47,7 +48,7 @@ app.config(['$routeProvider', function($routeProvider) {
 		return $.ajax({
 			async: false,
 			global: false,
-			url: "home.json",
+			url: "json/home.json",
 			dataType: "json",
 			success: function(data) {
 				CMS_CONFIG = data;

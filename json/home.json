@@ -1,0 +1,67 @@
+{
+	"id"		: 28,
+	"title"		: "Home",
+	"layout"	:
+	{
+		"baseCssClass"	: "two-grid"
+	},
+	"components"	:
+	[
+		{
+			"component"			: "ws-cfg-feed-viewer",
+			"componentParams"	:
+			{
+				"id"				: 42,
+				"maximumResults"	: 5,
+				"displayTemplate"	: "single-item-side-scroll"
+			}
+		},
+		
+		{
+			"component"			: "ws-quicklinks",
+			"componentParams"	:
+			{
+				"id"				: 42
+			}
+		},
+		
+		{
+			"component"			: "ws-mc-news-viewer",
+			"componentParams"	:
+			{
+				"id"				: 24,
+				"maximumResults"	: 5,
+				"showFeatured"		: true,
+				"includeSiteId"		: true,
+				"featuredDisplayTemplate"	: "single-item-side-scroll",
+				"feedDisplayTemplate"		: "list-icon-small",
+				"feedGroups" :
+				[
+					{
+						"id"	: 3,
+						"title"	: "Functions"
+					},
+					{
+						"id"	: 3,
+						"title"	: "Topics"
+					},
+					{
+						"id"	: 3,
+						"title"	: "Blogs",
+						"specialFeed"	: true
+					}
+				]
+			}
+		},
+		
+		{
+			"component"			: "ws-calendar",
+			"componentParams"	:
+			{
+				"title"			: "Calendar",
+				"displayTemplate"	: "singapore-general-events182273821@googlecalendar.com"
+			}
+		}
+	]
+}
+					

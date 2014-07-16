@@ -1,0 +1,30 @@
+{
+	"id"		: 14,
+	"container" : "randstad-intranet",
+	"section"   : "singapore",
+	"title"     : "Randstad Intranet - Singapore",
+	"defaultPageId" : 28,
+	"header" :
+	{
+		"display" : true,
+		"type"    : "html-and-menu-composite",
+		"content" : "<div>Some HTML content.</div>",
+		"menu" :
+		{
+			"display" : true,
+			"component" : "menu-search-composite",
+			"componentParams" : 
+			{
+				"id" : 3,
+				"showSearch" : true,
+				"showTopMenuSections" : true
+			}
+		}
+	},
+	"footer" :
+	{
+		"display" : true,
+		"type"    : "html",
+		"content" : "<div>Some HTML content.</div>"
+	}
+}

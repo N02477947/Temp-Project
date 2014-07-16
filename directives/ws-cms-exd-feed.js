@@ -1,18 +1,17 @@
 'use strict';
 (function() {
-	var app = angular.module('cmsExampleFeedViewer', [])
+	var app = angular.module('cmsFeedViewer', []);
 	
-	app.directive('wsFeedViewer', function() {
+	app.directive('wsCfgFeedViewer', function() {
 		return {
 			restrict: 'EA',
-			controller: 'cmsFeed',
+			controller: 'cmsFeedCtrl',
 			templateUrl: "templates/ws-cms-ext-feed.html"
 		};
 	});
-	app.controller('cmsFeed', ['$attrs', '$scope', function ($attrs, $scope) {
-	
-	$scope.feedId = $attrs.id;
-	$scope.feedMaximumResults = $attrs.maximumResults;
-	$scope.feedDisplayTemplate = $attrs.displayTemplate;
+	app.controller('cmsFeedCtrl', ['$attrs', '$scope', function ($attrs, $scope) {
+		$scope.feedId = $attrs.id;
+		$scope.feedMaximumResults = $attrs.maximumResults;
+		$scope.feedDisplayTemplate = $attrs.displayTemplate;
 	}]);
 })();
