@@ -19,12 +19,12 @@
 				"mhscTitle" : "Intranet",
 				"mhscLogo" : null,
 				"mhscSearch" : true,
-				"mhscContent" : "cfv", // "cfv", "img", or "lnk"
+				"mhscContent" : "cfv",
 				"mhscFeedLayout" : "scroll",
 				"mhscFeedKey" : 42,
 				"mhscFeedPagination" : false,
 				"mhscFeedLinksPerPage" : 5,
-				"megaCompact" : true // showTopMenuSections
+				"megaCompact" : true
 			}
 		}
 	},
