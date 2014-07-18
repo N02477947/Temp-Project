@@ -77,11 +77,13 @@ app.config(['$routeProvider', function($routeProvider) {
 
 }]);
 
-app.directive('cmsSite', ['$location', '$routeParams', function($location, $routeParams) {
+app.directive('cmsSite', ['$compile', '$location', '$routeParams', function($compile, $location, $routeParams) {
 	return {
 		restrict: 'EA',
 		transclude: true,
-		template: function() {
+		template: "<div ng-transclude></div>",
+		link: function(scope, element, attributes) {
+			// console.log("element.children()[0]\n", element.children()[0]);
 			var CMS_SITE_CONFIG = null;
 			var CMS_SITE_TEMPLATE = "";
 
@@ -106,7 +108,7 @@ app.directive('cmsSite', ['$location', '$routeParams', function($location, $rout
 					/*
 					 * SITE HEADER
 					 */
-					if(CMS_SITE_CONFIG.header.display == true) {
+					//if(CMS_SITE_CONFIG.header.display == true) {
 						CMS_SITE_TEMPLATE += "<div class=\"cmsHeader container-fluid\">";
 						// Do stuff here...
 						CMS_SITE_TEMPLATE += "<center><h1>This is the Header!</h1></center><hr>";
@@ -117,8 +119,8 @@ app.directive('cmsSite', ['$location', '$routeParams', function($location, $rout
 						/*
 						 * SITE MENU
 						 */
-						if(CMS_SITE_CONFIG.header.type == 'html-and-menu-composite') {
-							if(CMS_SITE_CONFIG.header.menu.display == true) { // <-- Redundant check?
+						//if(CMS_SITE_CONFIG.header.type == 'html-and-menu-composite') {
+							//if(CMS_SITE_CONFIG.header.menu.display == true) { // <-- Redundant check?
 								CMS_SITE_TEMPLATE += "<div class=\"cmsMenu container-fluid\">";
 								// Do stuff here...
 								CMS_SITE_TEMPLATE += "<center><h3>This is the Menu!</h3></center><hr>";
@@ -153,9 +155,9 @@ app.directive('cmsSite', ['$location', '$routeParams', function($location, $rout
 
 								// ................
 								CMS_SITE_TEMPLATE += "</div>";
-							}
-						}
-					}
+							//}
+						//}
+					//}
 
 					/*
 					 * SITE CONTENT
@@ -163,47 +165,34 @@ app.directive('cmsSite', ['$location', '$routeParams', function($location, $rout
 					CMS_SITE_TEMPLATE += "<div class=\"cmsContent container-fluid\">";
 					// Do stuff here...
 					CMS_SITE_TEMPLATE += "<center><h4>This is the Content!</h4></center><hr>";
-					CMS_SITE_TEMPLATE += "<div ng-transclude></div>";
+					//CMS_SITE_TEMPLATE += "<div ng-transclude></div>";
+					CMS_SITE_TEMPLATE += element[0].childNodes[0].innerHTML;
 					// ................
 					CMS_SITE_TEMPLATE += "</div>";
 
 					/*
 					 * SITE FOOTER
 					 */
-					if(CMS_SITE_CONFIG.footer.display == true) {
+					//if(CMS_SITE_CONFIG.footer.display == true) {
 						CMS_SITE_TEMPLATE += "<div class=\"cmsFooter container-fluid\">";
 						// Do stuff here...
 						CMS_SITE_TEMPLATE += "<center><h5>This is the Footer!</h5></center><hr>";
 						CMS_SITE_TEMPLATE += CMS_SITE_CONFIG.footer.content;
 						// ................
 						CMS_SITE_TEMPLATE += "</div>";
-					}
+					//}
 
 					//console.log("Site created: ", CMS_SITE_TEMPLATE);
-
-					/*$routeProvider.when('/'+(CMS_SITE_CONFIG.title.toLowerCase()), {
-						//title: CMS_SITE_CONFIG.title,
-						template: CMS_SITE_TEMPLATE,
-						controller: 'cmsAppController'
-					});
-					$routeProvider.when('/site/'+(CMS_SITE_CONFIG.section), {
-						title: CMS_SITE_CONFIG.title,
-						template: CMS_SITE_TEMPLATE,
-						controller: 'cmsAppController'
-					});
-					$routeProvider.when('/site/'+(CMS_SITE_CONFIG.id), {
-						title: CMS_SITE_CONFIG.title,
-						template: CMS_SITE_TEMPLATE,
-						controller: 'cmsAppController'
-					});*/
+					console.log("ELEMENTS\n", element);
+					element[0].innerHTML = CMS_SITE_TEMPLATE;
+					$compile(element.contents())(scope);
 				},
 				error: function(error) {
 					console.error("Could not retrieve site data!");
-					CMS_SITE_TEMPLATE = '<br>The SITE with this parameter does not exist!';
+					/*element[0] = "<br>The SITE with this parameter does not exist!";
+					$compile(element.contents())(scope);*/
 				}
 			});
-
-			return CMS_SITE_TEMPLATE;
 		}/*,
 		controller: 'cmsBodyController'*/
 	}
@@ -212,7 +201,7 @@ app.directive('cmsSite', ['$location', '$routeParams', function($location, $rout
 app.directive('cmsPage', ['$routeParams', function($routeParams) {
 	return {
 		restrict: 'EA',
-		transclude: true,
+		// transclude: true,
 		template: function() {
 			var CMS_LAYOUTS = null;
 			var CMS_PAGE_CONFIG = null;
@@ -257,7 +246,7 @@ app.directive('cmsPage', ['$routeParams', function($routeParams) {
 					CMS_PAGE_TEMPLATE += "<div class=\""+BASE_CSS_CLASS+" container-fluid\">";
 
 					// DEBUG TRANSCLUSION
-					CMS_PAGE_TEMPLATE += "<div ng-transclude></div>";
+					//CMS_PAGE_TEMPLATE += "<div ng-transclude></div>";
 
 					// Add first row tags.
 					CMS_PAGE_TEMPLATE += "<div class=\"row\"><div class=\"row-content\">";
@@ -328,22 +317,6 @@ app.directive('cmsPage', ['$routeParams', function($routeParams) {
 					CMS_PAGE_TEMPLATE += "</div>";
 
 					//console.log("Template created: ", CMS_PAGE_TEMPLATE);
-
-					/*$routeProvider.when('/'+(CMS_PAGE_CONFIG.title.toLowerCase()), {
-						//title: CMS_PAGE_CONFIG.title,
-						template: CMS_PAGE_TEMPLATE,
-						controller: 'cmsAppController'
-					});* /
-					$routeProvider.when('/site/:SITE_ID/page/'+(CMS_PAGE_CONFIG.title.toLowerCase()), {
-						title: CMS_PAGE_CONFIG.title,
-						template: CMS_PAGE_TEMPLATE,
-						controller: 'cmsAppController'
-					});
-					$routeProvider.when('/site/:SITE_ID/page/'+(CMS_PAGE_CONFIG.id), {
-						title: CMS_PAGE_CONFIG.title,
-						template: CMS_PAGE_TEMPLATE,
-						controller: 'cmsAppController'
-					});*/
 				},
 				error: function(error) {
 					console.error("Could not retrieve template data!");
